@@ -97,7 +97,7 @@ const login = async (req, res) => {
 const sendVerificationEmail = async (patient, res) => {
   const { _id, email } = patient;
   const uniqueString = uuidv4() + _id;
-  let url = `https://nexus-frontend-rho.vercel.app/verify-patient/${_id}/${uniqueString}`;
+  let url = `https://boye-dev-nexus.vercel.app/verify-patient/${_id}/${uniqueString}`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -350,7 +350,7 @@ const sendResetPwdMail = async (patient, res) => {
   const resetString = uuidv4() + _id;
   PatientPasswordReset.deleteMany({ patientId: _id })
     .then((result) => {
-      let url = `https://nexus-frontend-rho.vercel.app/resetPassword/patient/${_id}/${resetString}`;
+      let url = `https://boye-dev-nexus.vercel.app/resetPassword/patient/${_id}/${resetString}`;
 
       let mailOptions = {
         from: process.env.AUTH_EMAIL,
@@ -666,8 +666,7 @@ const resetPassword = async (patientId, resetString, newPassword, res) => {
           .catch((error) => {
             return res.status(500).json({
               status: "ERROR",
-              message:
-                "Please check for a newer reset link",
+              message: "Please check for a newer reset link",
               error: error.message,
             });
           });

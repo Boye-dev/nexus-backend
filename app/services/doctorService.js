@@ -106,7 +106,7 @@ const comparePassword = async function (oldPassword, password) {
 const sendVerificationEmail = async (doctor, res) => {
   const { _id, email } = doctor;
   const uniqueString = uuidv4() + _id;
-  let url = `https://nexus-frontend-rho.vercel.app/verify-doctor/${_id}/${uniqueString}`;
+  let url = `https://boye-dev-nexus.vercel.app/verify-doctor/${_id}/${uniqueString}`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -287,8 +287,8 @@ const verifyUser = async (doctorId, uniqueString, res) => {
                     .save()
                     .then(
                       DoctorVerification.deleteOne({ doctorId })
-                      .then(() => {
-                          console.log("trying to delete")
+                        .then(() => {
+                          console.log("trying to delete");
                           return res.status(200).json({
                             staus: "OK",
                             message:
@@ -359,7 +359,7 @@ const sendResetPwdMail = async (doctor, res) => {
   const resetString = uuidv4() + _id;
   DoctorPasswordReset.deleteMany({ doctorId: _id })
     .then((result) => {
-      let url = `https://nexus-frontend-rho.vercel.app/resetPassword/doctor/${_id}/${resetString}`;
+      let url = `https://boye-dev-nexus.vercel.app/resetPassword/doctor/${_id}/${resetString}`;
 
       let mailOptions = {
         from: process.env.AUTH_EMAIL,
@@ -674,8 +674,7 @@ const resetPassword = async (doctorId, resetString, newPassword, res) => {
           .catch((error) => {
             return res.status(500).json({
               status: "ERROR",
-              message:
-                "Please check for a newer reset link",
+              message: "Please check for a newer reset link",
               error: error.message,
             });
           });
