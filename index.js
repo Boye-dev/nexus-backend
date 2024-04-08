@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 app.use(cookieParser()); // To parse the incoming cookies
 const corsOptions = {
   credentials: true,
-  origin: ["https://nexus-frontend-rho.vercel.app", "http://localhost:3000", "http://localhost:5173","https://nexus-prototype.vercel.app"],
+  origin: ["https://boye-dev-nexus.vercel.app", "http://localhost:3000", "http://localhost:5173","https://nexus-prototype.vercel.app"],
   // origin: "http://localhost:3000",
 };
 app.use(cors(corsOptions)); // npm i cors
