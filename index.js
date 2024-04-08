@@ -86,7 +86,7 @@ const server = http.createServer(app);
 // Only start server after connection to database has been established
 const io = new Server(server, {
   cors: {
-    origin: "https://nexus-frontend-rho.vercel.app",
+    origin: "https://boye-dev-nexus.vercel.app",
   },
 });
 let users = [];
