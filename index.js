@@ -47,7 +47,13 @@ app.use((req, res, next) => {
 app.use(cookieParser()); // To parse the incoming cookies
 const corsOptions = {
   credentials: true,
-  origin: ["https://boye-dev-nexus.vercel.app", "http://localhost:3000", "http://localhost:5173","https://nexus-prototype.vercel.app"],
+  origin: [
+    "https://nexus.boye-dev.com",
+    "https://boye-dev-nexus.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://nexus-prototype.vercel.app",
+  ],
   // origin: "http://localhost:3000",
 };
 app.use(cors(corsOptions)); // npm i cors
@@ -86,7 +92,7 @@ const server = http.createServer(app);
 // Only start server after connection to database has been established
 const io = new Server(server, {
   cors: {
-    origin: "https://boye-dev-nexus.vercel.app",
+    origin: "https://nexus.boye-dev.com",
   },
 });
 let users = [];
