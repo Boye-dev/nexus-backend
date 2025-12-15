@@ -106,7 +106,7 @@ const comparePassword = async function (oldPassword, password) {
 const sendVerificationEmail = async (doctor, res) => {
   const { _id, email } = doctor;
   const uniqueString = uuidv4() + _id;
-  let url = `https://boye-dev-nexus.vercel.app/verify-doctor/${_id}/${uniqueString}`;
+  let url = `https://nexus.boye-dev.com/verify-doctor/${_id}/${uniqueString}`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -359,7 +359,7 @@ const sendResetPwdMail = async (doctor, res) => {
   const resetString = uuidv4() + _id;
   DoctorPasswordReset.deleteMany({ doctorId: _id })
     .then((result) => {
-      let url = `https://boye-dev-nexus.vercel.app/resetPassword/doctor/${_id}/${resetString}`;
+      let url = `https://nexus.boye-dev.com/resetPassword/doctor/${_id}/${resetString}`;
 
       let mailOptions = {
         from: process.env.AUTH_EMAIL,

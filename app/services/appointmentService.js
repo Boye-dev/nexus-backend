@@ -14,8 +14,8 @@ let transporter = nodemailer.createTransport({
 const sendBookEmail = async (patientId, doctorId, savedAppointment, res) => {
   const patient = await getPatientById(patientId);
   const doctor = await getDoctorById(doctorId);
-  let urlD = `https://boye-dev-nexus.vercel.app/doctor/waitlist`;
-  let urlP = `https://boye-dev-nexus.vercel.app/patient/dashboard`;
+  let urlD = `https://nexus.boye-dev.com/doctor/waitlist`;
+  let urlP = `https://nexus.boye-dev.com/patient/dashboard`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -364,7 +364,7 @@ const sendBookEmail = async (patientId, doctorId, savedAppointment, res) => {
 const sendApproveEmail = async (doctorId, appointment, res) => {
   const patient = await getPatientById(appointment.patientId);
   const doctor = await getDoctorById(doctorId);
-  let urlP = `https://boye-dev-nexus.vercel.app/patient/messages`;
+  let urlP = `https://nexus.boye-dev.com/patient/messages`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -546,8 +546,8 @@ const sendApproveEmail = async (doctorId, appointment, res) => {
 const sendCancelEmail = async (appointment, res) => {
   const patient = await getPatientById(appointment.patientId);
   const doctor = await getDoctorById(appointment.doctorId);
-  let history = `https://boye-dev-nexus.vercel.app/patient/history`;
-  let history2 = `https://boye-dev-nexus.vercel.app/doctor/history`;
+  let history = `https://nexus.boye-dev.com/patient/history`;
+  let history2 = `https://nexus.boye-dev.com/doctor/history`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -736,8 +736,8 @@ const sendCancelEmail = async (appointment, res) => {
 const sendRescheduleEmail = async (appointment, res) => {
   const patient = await getPatientById(appointment.patientId);
   const doctor = await getDoctorById(appointment.doctorId);
-  let urlP = `https://boye-dev-nexus.vercel.app/doctor/messages`;
-  let urlD = `https://boye-dev-nexus.vercel.app/patient/messages`;
+  let urlP = `https://nexus.boye-dev.com/doctor/messages`;
+  let urlD = `https://nexus.boye-dev.com/patient/messages`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -1087,7 +1087,7 @@ const sendRescheduleEmail = async (appointment, res) => {
 
 const sendDeclineEmail = async (appointment, res) => {
   const patient = await getPatientById(appointment.patientId);
-  let history = `https://boye-dev-nexus.vercel.app/patient/history`;
+  let history = `https://nexus.boye-dev.com/patient/history`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,

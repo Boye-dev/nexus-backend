@@ -97,7 +97,7 @@ const login = async (req, res) => {
 const sendVerificationEmail = async (patient, res) => {
   const { _id, email } = patient;
   const uniqueString = uuidv4() + _id;
-  let url = `https://boye-dev-nexus.vercel.app/verify-patient/${_id}/${uniqueString}`;
+  let url = `https://nexus.boye-dev.com/verify-patient/${_id}/${uniqueString}`;
 
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
@@ -350,7 +350,7 @@ const sendResetPwdMail = async (patient, res) => {
   const resetString = uuidv4() + _id;
   PatientPasswordReset.deleteMany({ patientId: _id })
     .then((result) => {
-      let url = `https://boye-dev-nexus.vercel.app/resetPassword/patient/${_id}/${resetString}`;
+      let url = `https://nexus.boye-dev.com/resetPassword/patient/${_id}/${resetString}`;
 
       let mailOptions = {
         from: process.env.AUTH_EMAIL,
